@@ -30,8 +30,9 @@ public class Task {
     private Double price;
     @Column
     private int categoryId;
-    @Column
-    private int userId;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
     @Column
     private int locationId;
     @Enumerated(value = EnumType.STRING)
