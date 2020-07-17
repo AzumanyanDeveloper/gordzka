@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Builder
@@ -37,8 +38,9 @@ public class User {
     private String imgPath;
     private String aboutMe;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Task> tasks;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private Set<Task> tasks;
+
 
 
 }
