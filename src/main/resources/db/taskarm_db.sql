@@ -18,9 +18,8 @@ USE `taskarm_db`;
 
 /*Table structure for table `blog` */
 
-DROP TABLE IF EXISTS `blog`;
 
-CREATE TABLE `blog` (
+CREATE TABLE IF NOT EXISTS `blog` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `text` text NOT NULL,
@@ -35,9 +34,8 @@ CREATE TABLE `blog` (
 
 /*Table structure for table `category` */
 
-DROP TABLE IF EXISTS `category`;
 
-CREATE TABLE `category` (
+CREATE TABLE IF NOT EXISTS `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `parent_id` int(11) DEFAULT NULL,
@@ -46,16 +44,11 @@ CREATE TABLE `category` (
   CONSTRAINT `category_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `category` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
-/*Data for the table `category` */
-
-insert  into `category`(`id`,`name`,`parent_id`) values 
-(1,'Շինարարություն',NULL);
 
 /*Table structure for table `comments` */
 
-DROP TABLE IF EXISTS `comments`;
 
-CREATE TABLE `comments` (
+CREATE TABLE  IF NOT EXISTS `comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `text` text NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -72,9 +65,7 @@ CREATE TABLE `comments` (
 
 /*Table structure for table `location` */
 
-DROP TABLE IF EXISTS `location`;
-
-CREATE TABLE `location` (
+CREATE TABLE IF NOT EXISTS `location` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `parent_id` int(11) NOT NULL,
@@ -87,9 +78,8 @@ CREATE TABLE `location` (
 
 /*Table structure for table `task` */
 
-DROP TABLE IF EXISTS `task`;
 
-CREATE TABLE `task` (
+CREATE TABLE IF NOT EXISTS `task` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -114,9 +104,7 @@ CREATE TABLE `task` (
 
 /*Table structure for table `user` */
 
-DROP TABLE IF EXISTS `user`;
-
-CREATE TABLE `user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `surname` varchar(255) NOT NULL,
@@ -133,6 +121,121 @@ CREATE TABLE `user` (
   KEY `location_id` (`location_id`),
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`location_id`) REFERENCES `location` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `location` */
+
+insert  into `location`(`id`,`name`,`parent_id`) values
+(1,'Երևան',NULL),
+(2,'Աջափնյակ',1),
+(3,'Արաբկիր',1),
+(4,'Ավան',1),
+(5,'Դավիթաշեն',1),
+(6,'Էրեբունի',1),
+(7,'Քանաքեռ Զեյթուն',1),
+(8,'Կենտրոն',1),
+(9,'Մալաթիա Սեբաստիա',1),
+(10,'Նոր Նորք',1),
+(11,'Նորք Մարաշ',1),
+(12,'Նուբարաշեն',1),
+(13,'Շենգավիթ',1),
+(14,'Արագածոտն',NULL),
+(15,'Ապարան',14),
+(16,'Արագած',14),
+(17,'Արուճ',14),
+(18,'Աշտարակ',14),
+(19,'Բյուրական',14),
+(20,'Կոշ',14),
+(21,'Մուղնի',14),
+(22,'Օշական',14),
+(23,'Թալին',14),
+(24,'Ծաղկահովիտ',14),
+(25,'Ուջան',14),
+(26,'Ոսկեվազ',14),
+(27,'Արարատ',NULL),
+(28,'Արարատ',27),
+(29,'Արգավանդ',27),
+(30,'Արտաշատ',27),
+(31,'Այնթապ',27),
+(32,'Գեղանիստ',27),
+(33,'Գետափնյա',27),
+(34,'Հայանիստ',27),
+(35,'Մասիս',27),
+(36,'Նոր Խարբերդ',27),
+(37,'Վեդի',27),
+(38,'Արմավիր',NULL),
+(39,'Արմավիր',38),
+(40,'Էջմիածին',38),
+(41,'Մեծամոր',38),
+(42,'Մուսալեռ',38),
+(43,'Փարաքար',38),
+(44,'Թաիրով',38),
+(45,'Արցախ',NULL),
+(46,'Ասկերան',45),
+(47,'Հադրութ',45),
+(48,'Քաշաթաղ',45),
+(49,'Լաչին',45),
+(50,'Մարտակերտ',45),
+(51,'Մարտունի',45),
+(52,'Շուշի',45),
+(53,'Ստեփանակերտ',45),
+(54,'Գեղարքունիք',NULL),
+(55,'Ճամբարակ',54),
+(56,'Գավառ',54),
+(57,'Մարտունի ',54),
+(58,'Սևան',54),
+(59,'Վարդենիս',54),
+(60,'Կոտայք',NULL),
+(61,'Աբովյան',60),
+(62,'Աղվերան',60),
+(63,'Արգել',60),
+(64,'Առինջ',60),
+(65,'Արզնի',60),
+(66,'Բջնի',60),
+(67,'Բյուրեղավան',60),
+(68,'Չարենցավան',60),
+(69,'Ձորաղբյուր',60),
+(70,'Գառնի',60),
+(71,'Գետամեջ',60),
+(72,'Գողթ',60),
+(73,'Հրազդան',60),
+(74,'Ջրվեժ',60),
+(75,'Քանաքեռավան',60),
+(76,'Քասախ',60),
+(77,'Մայակովսկի',60),
+(78,'Մրգաշեն',60),
+(79,'Նոր Հաճըն',60),
+(80,'Նուռնուս',60),
+(81,'Պռոշյան',60),
+(82,'Պտղնի',60),
+(83,'Ծաղկաձոր',60),
+(84,'Եղվարդ',60),
+(85,'Զովունի',60),
+(86,'Լոռի',NULL),
+(87,'Ալավերդի',86),
+(88,'Դսեղ',86),
+(89,'Սպիտակ',86),
+(90,'Ստեփանավան',86),
+(91,'Տաշիր',86),
+(92,'Վանաձոր',86),
+(93,'Շիրակ',NULL),
+(94,'Արթիկ',93),
+(95,'Գյումրի',93),
+(96,'Մարալիկ',93),
+(97,'Սյունիք',NULL),
+(98,'Գորիս',97),
+(99,'Քաջարան',97),
+(100,'Կապան',97),
+(101,'Մեղրի',97),
+(102,'Սիսիան',97),
+(103,'Տավուշ',NULL),
+(104,'Բերդ',103),
+(105,'Դիլիջան',103),
+(106,'Իջևան',103),
+(107,'Նոյեմբերյան',103),
+(108,'Վայոց Ձոր',NULL),
+(109,'Ջերմուկ',108),
+(110,'Վայք',108),
+(111,'Եղեգնաձոր',108);
 
 /*Data for the table `user` */
 
