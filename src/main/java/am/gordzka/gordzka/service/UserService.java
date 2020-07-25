@@ -12,12 +12,12 @@ import java.util.List;
 public class UserService {
 
 
-    private UserRepozitory userRepozitory;
+    private final UserRepozitory userRepozitory;
 
 
     public List<User> findAllUsers(){
-        List<User> allusers = userRepozitory.findAll();
-        return allusers;
+        return userRepozitory.findAll();
+
     }
 
 }
