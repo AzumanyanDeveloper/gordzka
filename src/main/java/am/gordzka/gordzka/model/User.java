@@ -26,21 +26,32 @@ public class User {
     private int age;
 
     @Enumerated(EnumType.STRING)
+    @Column
     private Gender gender;
 
     @Enumerated(EnumType.STRING)
+
+    @Column(name = "type")
     private UserType userType;
 
     private String email;
+
+    @Column(name = "phone_number")
     private String phoneNumber;
+
     private String password;
+
+    @Column(name = "location_id")
     private int locationId;
+
+    @Column(name = "img_path")
     private String imgPath;
+
+    @Column(name = "aboutme")
     private String aboutMe;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private Set<Task> tasks;
-
 
 
 }
