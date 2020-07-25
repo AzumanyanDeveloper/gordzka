@@ -25,8 +25,7 @@ public class Category{
 
     @Column
     private String name;
-   // @Column
-    //private int parentId;
+
     @Column
     private int count;
 

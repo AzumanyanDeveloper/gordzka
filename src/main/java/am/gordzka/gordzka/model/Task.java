@@ -18,27 +18,36 @@ public class Task {
     @Id
     @GeneratedValue
     private int id;
+
     @Column
     private  String name;
+
     @Column
     private Date createDate;
+
     @Column
     private String description;
+
     @Column
     private Date deadline;
+
     @Column
     private Double price;
+
     @Column
     private int categoryId;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "customer_id", nullable = false)
     private User user;
+
     @Column
     private int locationId;
     @Enumerated(value = EnumType.STRING)
+
     @Column
     private Type type;
     @Enumerated(value = EnumType.STRING)
+
     @Column
     private Status status;
 
