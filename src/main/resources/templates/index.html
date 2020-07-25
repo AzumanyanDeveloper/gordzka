@@ -1,6 +1,5 @@
-﻿<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >
-
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 
 <head>
@@ -700,7 +699,7 @@
 
     <!-- popular category start -->
     <section class="section">
-        <div class="container">
+        <section class="container" >
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="title text-center mb-4">
@@ -712,54 +711,20 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
+            <div class="row" >
+                <div class="col-lg-3 col-md-6" th:each="category:${categories}">
                     <div class="popu-category-box bg-light rounded text-center mt-4 p-4">
                         <div class="popu-category-icon mb-3">
                             <i class="mdi mdi-account h2 text-custom"></i>
                         </div>
                         <div class="popu-category-content">
-                            <h5 class="f-18 mb-4"><a href="" class="text-dark">Developer</a></h5>
+                            <h5 class="f-18 mb-4"><a href="" class="text-dark" th:text="${category.name}"></a></h5>
                             <p class="text-custom mb-0 rounded">780 Jobs</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="popu-category-box bg-light rounded text-center mt-4 p-4">
-                        <div class="popu-category-icon mb-3">
-                            <i class="mdi mdi-desktop-classic h2 text-custom"></i>
-                        </div>
-                        <div class="popu-category-content">
-                            <h5 class="f-18 mb-4"><a href="" class="text-dark">Technology</a></h5>
-                            <p class="text-custom mb-0 rounded">1270 Jobs</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="popu-category-box bg-light rounded text-center mt-4 p-4">
-                        <div class="popu-category-icon mb-3">
-                            <i class="mdi mdi-bank h2 text-custom"></i>
-                        </div>
-                        <div class="popu-category-content">
-                            <h5 class="f-18 mb-4"><a href="" class="text-dark">Government</a></h5>
-                            <p class="text-custom mb-0 rounded">2024 Jobs</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="popu-category-box bg-light rounded text-center mt-4 p-4">
-                        <div class="popu-category-icon mb-3">
-                            <i class="mdi mdi-auto-fix h2 text-custom"></i>
-                        </div>
-                        <div class="popu-category-content">
-                            <h5 class="f-18 mb-4"><a href="" class="text-dark">All Jobs</a></h5>
-                            <p class="text-custom mb-0 rounded">5000+ Jobs</p>
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
     <!-- popular category end -->
 
     <!-- all jobs start -->
