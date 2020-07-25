@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class UserController {
 
-    private UserService userService;
+    private final UserService userService;
 
 
     @GetMapping("/candidates-listing")

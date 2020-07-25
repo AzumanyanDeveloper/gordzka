@@ -17,8 +17,7 @@ public class CategoryService {
 
 
     public List<Category> getTopCategory(){
-        List<Category> topCategories = categoryRepository.findAllByOrderByCountDesc().subList(0,8);
-        return  topCategories;
+        return  categoryRepository.findAllByOrderByCountDesc().subList(0,8);
 
     }
 }
