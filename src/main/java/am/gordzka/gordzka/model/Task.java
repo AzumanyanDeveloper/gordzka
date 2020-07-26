@@ -40,10 +40,13 @@ public class Task {
     @JoinColumn(name = "customer_id", nullable = false)
     private User user;
 
-    @Column
-    private int locationId;
-    @Enumerated(value = EnumType.STRING)
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "location_id", nullable = false)
+    private Location location;
+
+
+    @Enumerated(value = EnumType.STRING)
     @Column
     private Type type;
     @Enumerated(value = EnumType.STRING)

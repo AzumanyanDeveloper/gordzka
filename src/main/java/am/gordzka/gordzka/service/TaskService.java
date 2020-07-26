@@ -18,10 +18,10 @@ public class TaskService {
     public List<Task> allTasksByType() {
         return taskRepository.findAllByType(Type.TOP);
     }
-  
 
-
-
+    public List<Task> allTasks() {
+        return taskRepository.findAll();
+    }
 
 
 }
