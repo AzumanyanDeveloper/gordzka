@@ -10,6 +10,7 @@ public interface TaskRepository extends JpaRepository<Task,Integer> {
 
 
     List<Task>findAllByType(Type type);
+    List<Task> findAll();
 
 
 
