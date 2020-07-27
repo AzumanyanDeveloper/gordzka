@@ -20,7 +20,7 @@ public class TaskController {
     public String findAllTasks(Model model) {
         List<Task> allTasks = taskService.allTasks();
         model.addAttribute("alltasks", allTasks);
-        return "all-tasks-page";
+        return "listing";
     }
 
 }

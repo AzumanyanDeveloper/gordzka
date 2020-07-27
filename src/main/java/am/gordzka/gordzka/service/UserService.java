@@ -20,4 +20,8 @@ public class UserService {
 
     }
 
+    public void saveUser(User user){
+        userRepozitory.save(user);
+    }
+
 }
