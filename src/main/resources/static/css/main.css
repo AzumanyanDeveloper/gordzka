@@ -1770,6 +1770,10 @@ a:active, a:focus, button:focus, .btn:focus, input:focus, textarea:focus, select
     display: inline-block;
 }
 
+.option1{
+    margin-left: 20px;
+}
+
 
 
 
