@@ -4,8 +4,10 @@ import am.gordzka.gordzka.model.Location;
 import am.gordzka.gordzka.model.User;
 import am.gordzka.gordzka.repozitory.UserRepozitory;
 import am.gordzka.gordzka.service.LocationService;
+import am.gordzka.gordzka.service.SecurityService;
 import am.gordzka.gordzka.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,7 @@ public class UserController {
     private final LocationService locationService;
     private final PasswordEncoder passwordEncoder;
     private final UserRepozitory userRepozitory;
+    private final SecurityService securityService;
 
     @GetMapping("/candidates-listing")
     public String getCandList(Model model) {
@@ -40,8 +43,10 @@ public class UserController {
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.saveUser(user);
-        return "redirect:/login-register";
-    }
+       // securityService.autoLogin(user.getEmail(), user.getPassword());
+           return "redirect:/?msg=Login Successfully";
+        }
+
 
     @GetMapping("/register")
     public String userRegister(Model model){
