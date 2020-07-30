@@ -34,14 +34,16 @@ public class TaskController {
 
     @GetMapping("/searchTasks")
     public String serachTasks(@RequestParam(defaultValue="") String keyword, @RequestParam("locationId") int id, Model model){
+        List<Location> locations = locationService.allLocations();
+        model.addAttribute("locations", locations);
         if (!keyword.equals("") && id == 0){
             List<Task> tasks = taskService.serachTasksByKeyword(keyword);
             model.addAttribute("tasks",tasks);
-            return "index";
+            return "search";
         }else if (!keyword.equals("")) {
             List<Task> tasks = taskService.serachTasksByKeywordAndLocationId(keyword, id);
             model.addAttribute("tasks",tasks);
-            return "index";
+            return "search";
         }else{
             return "redirect:/";
         }
