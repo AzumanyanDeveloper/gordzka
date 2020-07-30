@@ -1,5 +1,6 @@
 package am.gordzka.gordzka.controller;
 
+import am.gordzka.gordzka.model.CurrentUser;
 import am.gordzka.gordzka.model.Location;
 import am.gordzka.gordzka.model.User;
 import am.gordzka.gordzka.repository.UserRepository;
@@ -31,7 +32,7 @@ public class UserController {
 
 
     @PostMapping("/register")
-    public String userRegister(HttpServletRequest httpRequest, @ModelAttribute User user) {
+    public String userRegister(Model model,HttpServletRequest httpRequest, @ModelAttribute User user, @AuthenticationPrincipal CurrentUser currentUser) {
         Optional<User> userbyEmail = userRepository.findByEmail(user.getEmail());
         if (userbyEmail.isPresent()) {
             return "redirect:/register";
@@ -39,6 +40,7 @@ public class UserController {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             userService.saveUser(user);
             securityService.autoLogin(httpRequest, user.getEmail(), user.getPassword());
+            model.addAttribute("currentUser",currentUser);
             return "redirect:/";
         }
     }

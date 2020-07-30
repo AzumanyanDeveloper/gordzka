@@ -26,11 +26,10 @@ public class MainController {
     private final UserRepository userRepository;
 
     @GetMapping("/")
-    public String home(Model model, @AuthenticationPrincipal User sessionUser) {
+    public String home(Model model) {
         List<Category> topCategory = categoryService.getTopCategory();
         List<Task> topTasks = taskService.allTasksByType();
         List<Location> locations = locationService.allLocations();
-        model.addAttribute("sessionUser",sessionUser);
         model.addAttribute("locations",locations);
         model.addAttribute("topTasks",topTasks);
         model.addAttribute("categories",topCategory);
