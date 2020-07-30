@@ -5,10 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
@@ -22,4 +19,7 @@ public class Location {
     private int id;
 
     private String name;
+
+    @Column(name = "parent_id")
+    private Integer parentId;
 }
