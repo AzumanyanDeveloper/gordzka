@@ -1,7 +1,7 @@
 package am.gordzka.gordzka.service;
 
 import am.gordzka.gordzka.model.Category;
-import am.gordzka.gordzka.repozitory.CategoryRepository;
+import am.gordzka.gordzka.repository.CategoryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

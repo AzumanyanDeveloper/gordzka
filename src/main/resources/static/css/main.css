@@ -1067,8 +1067,10 @@ a:active, a:focus, button:focus, .btn:focus, input:focus, textarea:focus, select
 .job-item .job-info {
     font-size: 14px;
     color: #000;
-    overflow: hidden;
-    padding: 40px 25px 20px
+    overflow: inherit;
+    padding: 40px 25px 20px;
+    height:auto;
+
 }
 
 .job-info .company-logo {
@@ -1151,8 +1153,8 @@ a:active, a:focus, button:focus, .btn:focus, input:focus, textarea:focus, select
 
 .job-item .time a span {
     color: #fff;
-    background-color: #f1592a;
-    border-color: #f1592a
+    background-color: #0185d2;
+    border-color: #0185d2
 }
 
 .job-item .time a span.part-time {
