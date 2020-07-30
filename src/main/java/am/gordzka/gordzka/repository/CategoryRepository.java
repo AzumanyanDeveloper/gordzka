@@ -1,4 +1,4 @@
-package am.gordzka.gordzka.repozitory;
+package am.gordzka.gordzka.repository;
 
 import am.gordzka.gordzka.model.Category;
 import org.springframework.data.jpa.repository.JpaRepository;

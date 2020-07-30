@@ -1,28 +1,27 @@
 package am.gordzka.gordzka.service;
 
 import am.gordzka.gordzka.model.User;
-import am.gordzka.gordzka.repozitory.UserRepozitory;
+import am.gordzka.gordzka.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 @AllArgsConstructor
 public class UserService {
 
 
-    private final UserRepozitory userRepozitory;
+    private final UserRepository userRepository;
 
 
     public List<User> findAllUsers(){
-        return userRepozitory.findAll();
+        return userRepository.findAll();
 
     }
-
     public void saveUser(User user){
-        userRepozitory.save(user);
+        userRepository.save(user);
     }
 
 }

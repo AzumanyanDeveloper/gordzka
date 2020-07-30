@@ -1,6 +1,6 @@
 package am.gordzka.gordzka.controller;
 import am.gordzka.gordzka.model.*;
-import am.gordzka.gordzka.repozitory.UserRepozitory;
+import am.gordzka.gordzka.repository.UserRepository;
 import am.gordzka.gordzka.service.CategoryService;
 import am.gordzka.gordzka.service.LocationService;
 import am.gordzka.gordzka.service.TaskService;
@@ -9,11 +9,10 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Controller
 @RequiredArgsConstructor
@@ -24,12 +23,15 @@ public class MainController {
 
     private final LocationService locationService;
 
-    private final UserRepozitory userRepozitory;
+    private final UserRepository userRepository;
 
     @GetMapping("/")
-    public String home(Model model) {
+    public String home(Model model, @AuthenticationPrincipal User sessionUser) {
         List<Category> topCategory = categoryService.getTopCategory();
         List<Task> topTasks = taskService.allTasksByType();
+        List<Location> locations = locationService.allLocations();
+        model.addAttribute("sessionUser",sessionUser);
+        model.addAttribute("locations",locations);
         model.addAttribute("topTasks",topTasks);
         model.addAttribute("categories",topCategory);
         return "index";
