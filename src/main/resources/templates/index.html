@@ -75,7 +75,7 @@
                 <form action="/searchTasks">
                     <input type="text" class="form-control" name="keyword" placeholder="Առաջադրանքի անվանումը">
                     <select name="locationId" class="dropdown tr-change-dropdown show">
-                        <option value="0" selected="selected">Տարածաշրջան</option>
+                        <option value="0"  selected="selected">Տարածաշրջան</option>
                         <option th:each="location:${locations}" th:value="${location.id}"
                                 th:text="${location.name}"></option>
                     </select>
