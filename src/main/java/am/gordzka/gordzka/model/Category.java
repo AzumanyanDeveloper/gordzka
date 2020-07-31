@@ -29,4 +29,7 @@ public class Category{
     @Column
     private int count;
 
+    @Column(name = "img_path")
+    private String imgPath;
+
 }

@@ -263,7 +263,7 @@
             <li th:each="category:${categories}">
                 <a href="#">
 <span class="icon">
-<img src="images\icons\category1.png" alt="Icon" class="img-fluid">
+<img th:src="@{/image(name=${category.imgPath})}" th:alt="${category.name}" class="img-fluid">
 </span>
                     <span class="category-title" th:text="${category.name}"></span>
                     <span class="category-quantity" th:text="'('+${category.count}+')'"></span>
