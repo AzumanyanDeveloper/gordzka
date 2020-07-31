@@ -148,14 +148,14 @@
         <div class="tab-content tr-job-posted">
             <div role="tabpanel" class="tab-pane fade show active" id="four-colum">
                 <div class="row">
-                    <div class="col-md-6 col-lg-3" th:each="task : ${alltasks}">
+                    <div class="col-md-6 col-lg-3" th:each="task : ${alltasks}" >
                         <div class="job-item">
                             <div class="item-overlay">
                                 <div class="job-info">
                                     <a href="#" class="btn btn-primary">Full Time</a>
                                     <span class="tr-title">
-<a href="job-details.html"><h5 th:text="${task.name}"></h5></a>
-<span><h5 th:text="${task.category.name}"></h5></span> </span>
+<a href="job-details.html"><h5 class="task-name" th:text="${task.name}" ></h5></a>
+<span><h5 th:text="${task.category.name}" ></h5></span> </span>
                                  <ul class="tr-list job-meta">
                                         <li><i class="fa fa-map-signs" aria-hidden="true"></i><h5 th:text="${task.location.name}"></h5></li>
                                         <li><i class="fa fa-briefcase" aria-hidden="true"></i></li>
@@ -175,8 +175,8 @@
                                     <img src="images/job/3.png" alt="images" class="img-fluid">
                                 </div>
                                 <span class="tr-title">
-<a href="#"><h5 th:text="${task.name}" style="color: #0471b6"></h5></a>
-<span><a href="#" th:text="${task.category.name}"></a></span>
+<a href="#"><h5  th:text="${task.name}" style="color: #0471b6" class="task-name"></h5 ></a>
+<span class="task-category-name"><a href="#" th:text="${task.category.name}"></a></span>
 </span><ul class="tr-list job-meta">
                                     <li><span><i class="fa fa-map-signs" aria-hidden="true"></i></span><a
                                             th:text="${task.location.name}"></a></li>
@@ -341,5 +341,9 @@
     ga('create', 'UA-73239902-1', 'auto');
     ga('send', 'pageview');
 </script>
+<br>
+<br>
+<br>
 
-</body></html>
+</body>
+</html>
