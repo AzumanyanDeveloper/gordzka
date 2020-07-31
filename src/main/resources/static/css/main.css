@@ -1596,7 +1596,14 @@ a:active, a:focus, button:focus, .btn:focus, input:focus, textarea:focus, select
     display: block;
     margin-bottom: 25px
 }
+.task-name{
+    z-index: 100000;
+    height: 35px;
+}
 
+.task-category-name{
+    height: 30px;
+}
 .job-details .widget_title {
     font-size: 18px
 }
