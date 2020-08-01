@@ -935,7 +935,7 @@ a:active, a:focus, button:focus, .btn:focus, input:focus, textarea:focus, select
 .category-list li {
     float: left;
     width: 25%;
-    font-size: 16px;
+    font-size: 14px;
     background-color: #fff;
     border-right: 1px solid #e6e3e6;
     border-bottom: 1px solid #e6e3e6
@@ -952,7 +952,7 @@ a:active, a:focus, button:focus, .btn:focus, input:focus, textarea:focus, select
 .category-list li a {
     color: #b5b5b5;
     display: block;
-    padding: 40px 15px
+    padding: 40px 0;
 }
 
 .category-list span {
