@@ -1,9 +1,7 @@
 package am.gordzka.gordzka.controller;
 
-import am.gordzka.gordzka.model.Location;
 import am.gordzka.gordzka.model.User;
 import am.gordzka.gordzka.repository.UserRepository;
-import am.gordzka.gordzka.service.LocationService;
 import am.gordzka.gordzka.service.SecurityService;
 import am.gordzka.gordzka.service.UserService;
 import lombok.AllArgsConstructor;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -23,7 +20,6 @@ import java.util.Optional;
 public class UserController {
 
     private final UserService userService;
-    private final LocationService locationService;
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final SecurityService securityService;
@@ -45,8 +41,6 @@ public class UserController {
 
     @GetMapping("/register")
     public String userRegister(Model model) {
-        List<Location> locations = locationService.allLocations();
-        model.addAttribute("locations", locations);
         model.addAttribute("msg", "Այս էլ․ հացեով օգտատեր գրանցված է կայքում");
         return "login-register";
     }

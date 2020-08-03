@@ -1,10 +1,8 @@
 package am.gordzka.gordzka.controller;
 
-import am.gordzka.gordzka.model.*;
+import am.gordzka.gordzka.model.CurrentUser;
+import am.gordzka.gordzka.model.User;
 import am.gordzka.gordzka.repository.UserRepository;
-import am.gordzka.gordzka.service.CategoryService;
-import am.gordzka.gordzka.service.LocationService;
-import am.gordzka.gordzka.service.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,25 +17,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 
 @Controller
 @RequiredArgsConstructor
 public class MainController {
+
     @Value("${file.upload.dir}")
     private String uploadDir;
 
-    private final CategoryService categoryService;
-
-    private final TaskService taskService;
-
-    private final LocationService locationService;
 
     private final UserRepository userRepository;
 
@@ -55,12 +47,6 @@ public class MainController {
         } else if (authentication instanceof CurrentUser) {
             user = ((CurrentUser) authentication).getUser();
         }
-        List<Category> topCategory = categoryService.getTopCategory();
-        List<Task> topTasks = taskService.allTasksByType();
-        List<Location> locations = locationService.allLocations();
-        model.addAttribute("locations", locations);
-        model.addAttribute("topTasks", topTasks);
-        model.addAttribute("categories", topCategory);
         model.addAttribute("currentUser", user);
         return "index";
     }
@@ -71,10 +57,6 @@ public class MainController {
         if (user == null) {
             return "redirect:/login-register?msg=User does not exist";
         } else {
-            List<Category> topCategory = categoryService.getTopCategory();
-            List<Task> topTasks = taskService.allTasksByType();
-            model.addAttribute("topTasks", topTasks);
-            model.addAttribute("categories", topCategory);
             model.addAttribute("currentUser", user);
             return "index";
         }
@@ -82,9 +64,7 @@ public class MainController {
     }
 
     @GetMapping("/login-register")
-    public String loginRegisterPageGet(Model model) {
-        List<Location> locations = locationService.allLocations();
-        model.addAttribute("locations", locations);
+    public String loginRegisterPageGet() {
         return "login-register";
     }
 
