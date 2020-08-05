@@ -35,7 +35,6 @@ public class EmployeeController {
     public List<Category> categories(ModelMap model) {
         List<Category> topCategory = categoryService.getTopCategory();
         model.addAttribute("categories", topCategory);
-
         return topCategory;
     }
 
