@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Header</title>
+</head>
+<body>
+<div th:fragment="header">
+    <header class="tr-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"><i class="fa fa-align-justify"></i></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img class="img-fluid" src="images\logo.png" alt="Logo"></a>
+                </div>
+                <!---->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav navbar-nav">
+                        <li class="tr-dropdown active"><a href="/allTasksPage">Առաջադրանքներ</a>
+                        </li>
+                        <li><a href="job-post.html">Կատարողներ</a></li>
+                        <li><a href="listing.html">Հետաքրքիր նյութեր</a></li>
+                        <li><a href="job-details.html">Մեր մասին</a></li>
+                        <ul class="tr-dropdown-menu tr-list fadeInUp" role="menu">
+                            <li><a href="employee-profile.html">Կոնտակտներ</a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar-right">
+                    <ul class="sign-in tr-list">
+                        <li><i class="fa fa-user"></i></li>
+                        <li th:if="${currentUser == null}"><a href="/login-register">Գրանցվել | Մուտք</a></li>
+                        <li th:if="${currentUser != null}"><a href="/">Իմ էջը |</a><a href="/logout"> Դուրս գալ</a></li>
+                    </ul>
+                    <a href="job-post.html" class="btn btn-primary">Ավելացնել առաջադրանք</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="tr-banner section-before bg-image">
+        <div class="container">
+            <div class="banner-content text-center">
+                <h1>Ամենահեշտ տարբերակը գտնել նոր աշխատանք</h1>
+                <h2>գտիր քեզ համապատասխան աշխատանքը</h2>
+                <div class="banner-form">
+                    <form action="/searchTasks">
+                        <input type="text" class="form-control" name="keyword" placeholder="Առաջադրանքի անվանումը">
+                        <select name="locationId" class="dropdown tr-change-dropdown show">
+                            <option value="0"  selected="selected">Տարածաշրջան</option>
+                            <option th:each="location:${locations}" th:value="${location.id}"
+                                    th:text="${location.name}"></option>
+                        </select>
+                        <button type="submit" class="btn btn-primary" value="Search">Փնտրել</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

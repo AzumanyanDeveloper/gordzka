@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `task` (
   KEY `user_id` (`customer_id`),
   KEY `category_id` (`category_id`),
   KEY `location_id` (`location_id`),
-  CONSTRAINT `task_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `task_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `user` (`id`),
   CONSTRAINT `task_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
   CONSTRAINT `task_ibfk_3` FOREIGN KEY (`location_id`) REFERENCES `location` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `task` (
 /*Table structure for table `user` */
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `surname` varchar(255) NOT NULL,
   `gender` enum('MALE','FEMALE') DEFAULT NULL,
